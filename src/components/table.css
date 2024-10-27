@@ -1,0 +1,42 @@
+
+.buttons > button {
+   margin-left: 15px;
+}
+
+/* TextFieldStyles.css */
+.balance .MuiOutlinedInput-root {
+   color: white;
+ }
+ 
+ .balance .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+   border-color: white;
+ }
+ 
+ .balance .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+   border-color: white;
+ }
+ 
+ .balance .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+   border-color: white;
+ }
+ 
+ .balance .MuiInputLabel-root {
+   color: white;
+ }
+ 
+ .balance .MuiInputLabel-root.Mui-focused {
+   color: white;
+ }
+ 
+ .balance .MuiInputBase-input {
+   color: white;
+ }
+ 
+.MuiTableCell-root.MuiTableCell-body.MuiTableCell-sizeSmall.css-dsuxgy-MuiTableCell-root {
+  padding: 16px;
+}
+
+.MuiFormHelperText-root.Mui-error.MuiFormHelperText-sizeSmall.MuiFormHelperText-contained.MuiFormHelperText-filled.css-k4qjio-MuiFormHelperText-root {
+  position: absolute;
+  bottom: -17px;
+}
