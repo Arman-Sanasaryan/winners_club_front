@@ -56,7 +56,7 @@ export default function Row(props: {
 
   const handleChange =
     (name: string) => (event: { target: { value: string } }) => {
-      const value = event.target.value;
+      const value = event.target.value.replace(/,/g,'');
       function isValidNumberWithSingleDot(str: string) {
         const trimmedStr = str.trim();
         const pattern = /^[0-9]+(\.[0-9]*)?$/;
@@ -124,7 +124,7 @@ export default function Row(props: {
         ) {
           setFinalBalance();
         }
-        // handleSave();
+        handleSave();
       }
     }
   };
@@ -289,9 +289,9 @@ export default function Row(props: {
           {/* <Button variant="contained" color="secondary" onClick={handleSubmit}>
             Get Data
           </Button> */}
-          <Button variant="contained" color="secondary" onClick={handleSave}>
+          {/* <Button variant="contained" color="secondary" onClick={handleSave}>
             Save
-          </Button>
+          </Button> */}
         </TableCell>
       </TableRow>
       <TableRow>
@@ -438,14 +438,14 @@ export default function Row(props: {
                       <Typography gutterBottom component="div">
                         {valueChecking(results.result_B6)
                           ? "0.000"
-                          : results.result_B6.toFixed(3)}
+                          : results.result_B6.toFixed(7)}
                       </Typography>
                     </TableCell>
                     <TableCell>
                       <Typography gutterBottom component="div">
                         {valueChecking(results.result_C6)
                           ? "0.000"
-                          : results.result_C6.toFixed(3)}
+                          : results.result_C6.toFixed(7)}
                       </Typography>
                     </TableCell>
                     <TableCell>
@@ -554,14 +554,14 @@ export default function Row(props: {
                       <Typography gutterBottom component="div">
                         {valueChecking(results.result_B5)
                           ? 0
-                          : results.result_B5.toFixed(3)}
+                          : results.result_B5.toFixed(7)}
                       </Typography>
                     </TableCell>
                     <TableCell>
                       <Typography gutterBottom component="div">
                         {valueChecking(results.result_C5)
                           ? 0
-                          : results.result_C5.toFixed(3)}
+                          : results.result_C5.toFixed(7)}
                       </Typography>
                     </TableCell>
                     <TableCell>
