@@ -154,30 +154,30 @@ const Calculator = () => {
             />
             <Typography gutterBottom component="div">
               Accumulated Balance{" "}
-              <Button size="small">
+              <Button size="small" color="info" sx={{ fontWeight: 700 }}>
                 {(generalData.accumulatedBalance || 0).toFixed(3)}
               </Button>
             </Typography>
             <Typography gutterBottom component="div">
               Margin Equity{" "}
-              <Button size="small">
+              <Button size="small" color="info" sx={{ fontWeight: 700 }}>
                 {(generalData.fullMarginEq || 0).toFixed(3)}
               </Button>
             </Typography>
             <Typography gutterBottom component="div" style={{ color: "#00B300" }}>
               Number of Longs{" "}
-              <Button variant="contained" color="success" size="small">
+              <Button variant="contained" color="success" size="small" sx={{ fontWeight: 700 }}>
                 {generalData["CG4"] || 0}
               </Button>
             </Typography>
             <Typography gutterBottom component="div" style={{ color: "red" }}>
               Number of Shorts{" "}
-              <Button variant="contained" color="error" size="small">
+              <Button variant="contained" color="error" size="small" sx={{ fontWeight: 700}}>
                 {generalData["CH4"] || 0}
               </Button>
             </Typography>
             <Typography gutterBottom component="div">
-              Coin Quantity <Button size="small">{generalData["E242"]}</Button>
+              Coin Quantity <Button size="small" color="info" sx={{ fontWeight: 700 }}>{generalData["E242"]}</Button>
             </Typography>
           </Box>
         </Box>{" "}
