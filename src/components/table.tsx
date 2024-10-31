@@ -164,7 +164,7 @@ const Calculator = () => {
                 {(generalData.fullMarginEq || 0).toFixed(3)}
               </Button>
             </Typography>
-            <Typography gutterBottom component="div" style={{ color: "green" }}>
+            <Typography gutterBottom component="div" style={{ color: "#00B300" }}>
               Number of Longs{" "}
               <Button variant="contained" color="success" size="small">
                 {generalData["CG4"] || 0}
