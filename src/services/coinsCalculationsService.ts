@@ -5,7 +5,7 @@ const API_URL = '/coins-calculations';
 export const saveCoinsCalculation = async (data: any, userId: string) => {
   const response = await axiosInstance.post(API_URL, {
     ...data,
-    userId,  // Include the userId in the payload
+    userId,
   });
   return response.data;
 };

@@ -80,10 +80,6 @@ export default function Row(props: {
         ...errorStates,
         [name]: !isValid,
       });
-
-      // if (isValid) {
-      //   onUpdate && onUpdate(updatedData);
-      // }
     };
 
   const convertValuesToNumbers = (

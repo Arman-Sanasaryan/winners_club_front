@@ -36,8 +36,6 @@ export const CoinsCalculationsProvider = ({
 
   const saveRowInBE = async (updatedData: any) => {
     if (user) {
-      console.log(updatedData, user, "<<<<<<<<<<");
-
       const savedData = await saveCoinsCalculation(updatedData, user.userId);
       setRowsInBE((prevRows) => {
         const existingIndex = prevRows.findIndex(

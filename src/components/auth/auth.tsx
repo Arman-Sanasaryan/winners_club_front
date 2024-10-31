@@ -21,10 +21,9 @@ const Container = styled(Box)(({ theme }) => ({
   alignItems: "center",
   minHeight: "100vh",
   fontFamily: '"Jost", sans-serif',
-  backgroundSize:
-    "100% 100%" /* This ensures the image covers the entire div */,
-  backgroundPosition: "center" /* This centers the image */,
-  backgroundRepeat: "no-repeat" /* This prevents the image from repeating */,
+  backgroundSize: "100% 100%",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
   backgroundColor: "#1f1f1f",
 }));
 
@@ -138,10 +137,8 @@ function Auth() {
       );
       localStorage.setItem("access_token", response.access_token);
       localStorage.setItem("userId", response.userId);
-      window.location.href = "/"; // Navigate to the general page
+      window.location.href = "/";
     } catch (error) {
-      console.log(error);
-
       console.error("Signup error: ", error);
     }
   };
@@ -156,8 +153,7 @@ function Auth() {
       const response = await login(username, password);
       localStorage.setItem("access_token", response.access_token);
       localStorage.setItem("userId", response.userId);
-      window.location.href = "/"; // Navigate to the general page
-      // You can add further logic here after a successful login
+      window.location.href = "/";
     } catch (error) {
       console.error("Login error: ", error);
     }

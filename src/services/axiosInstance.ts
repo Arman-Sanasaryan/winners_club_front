@@ -14,7 +14,6 @@ axiosInstance.interceptors.request.use(
   async (config) => {
     const user = getCurrentUser();
     if (user && user.access_token) {
-      console.log("Sending Access Token:", user.access_token); // Debug
       config.headers["Authorization"] = `Bearer ${user.access_token}`;
     }
     return config;
@@ -29,8 +28,6 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async (error) => {
-    console.log(error, "error");
-
     const originalRequest = error.config;
     if (error?.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
@@ -43,8 +40,6 @@ axiosInstance.interceptors.response.use(
           const newAccessToken = response.data.access_token;
           const newRefreshToken = response.data.refresh_token;
 
-          console.log("New Access Token:", newAccessToken); // Debug
-
           setCurrentUser({
             ...user,
             access_token: newAccessToken,
@@ -52,15 +47,12 @@ axiosInstance.interceptors.response.use(
           });
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + newAccessToken;
-          console.log(newAccessToken);
 
           originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
           return axiosInstance(originalRequest);
         } catch (refreshError) {
           console.error("Refresh token expired:", refreshError);
           removeCurrentUser();
-          // Optionally redirect to login page
-          // window.location.href = '/login';
         }
       }
     }

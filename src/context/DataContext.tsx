@@ -44,7 +44,6 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const fetchUserCoinsCalculations = async (generalData: GeneralData) => {
     if (user && Object.keys(user).length !== 0) {
       const data = await getUserCoinsCalculations(user.userId);
-      // triggerCalculations(data, generalData);
       setRows(data);
     }
   };
