@@ -115,6 +115,8 @@ export default function Row(props: {
         triggerCalculations(newRows, generalData);
         isMoreThanZiro = results.result_L2 > 0;
         if (
+          inputValues.B4, inputValues.C4, inputValues.D4, inputValues.E4, inputValues.G4 &&
+          inputValues.B4 != inputValues.C4 &&
           inputValues.G4 <= inputValues.B4 &&
           inputValues.G4 >= inputValues.C4
         ) {
@@ -326,7 +328,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.B4}
                         helperText={errorStates.B4 ? "Invalid input" : ""}
-                        value={inputValues.B4 || null}
+                        value={inputValues.B4 ? inputValues.B4 : 0}
                         onKeyPress={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
@@ -338,7 +340,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.C4}
                         helperText={errorStates.C4 ? "Invalid input" : ""}
-                        value={inputValues.C4 || null}
+                        value={inputValues.C4 ? inputValues.C4 : 0}
                         onKeyPress={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
@@ -350,7 +352,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.D4}
                         helperText={errorStates.D4 ? "Invalid input" : ""}
-                        value={inputValues.D4 || null}
+                        value={inputValues.D4 ? inputValues.D4 : 0}
                         onKeyPress={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
@@ -362,7 +364,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.E4}
                         helperText={errorStates.E4 ? "Invalid input" : ""}
-                        value={inputValues.E4 || null}
+                        value={inputValues.E4 ? inputValues.E4 : 0}
                         onKeyPress={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
@@ -374,7 +376,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.G4}
                         helperText={errorStates.G4 ? "Invalid input" : ""}
-                        value={inputValues.G4 || null}
+                        value={inputValues.G4 ? inputValues.G4 : 0}
                         onKeyPress={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
