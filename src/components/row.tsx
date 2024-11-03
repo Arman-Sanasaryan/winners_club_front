@@ -277,6 +277,7 @@ export default function Row(props: {
             size="small"
             value={coinName}
             onChange={handleChangeCoinName}
+            onKeyDown={(event) => handleKeyPress(event)}
             autoComplete="off"
           />
         </TableCell>
@@ -329,7 +330,7 @@ export default function Row(props: {
                         error={errorStates.B4}
                         helperText={errorStates.B4 ? "Invalid input" : ""}
                         value={inputValues.B4 ? inputValues.B4 : 0}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
@@ -341,7 +342,7 @@ export default function Row(props: {
                         error={errorStates.C4}
                         helperText={errorStates.C4 ? "Invalid input" : ""}
                         value={inputValues.C4 ? inputValues.C4 : 0}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
@@ -353,7 +354,7 @@ export default function Row(props: {
                         error={errorStates.D4}
                         helperText={errorStates.D4 ? "Invalid input" : ""}
                         value={inputValues.D4 ? inputValues.D4 : 0}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
@@ -365,7 +366,7 @@ export default function Row(props: {
                         error={errorStates.E4}
                         helperText={errorStates.E4 ? "Invalid input" : ""}
                         value={inputValues.E4 ? inputValues.E4 : 0}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
@@ -377,7 +378,7 @@ export default function Row(props: {
                         error={errorStates.G4}
                         helperText={errorStates.G4 ? "Invalid input" : ""}
                         value={inputValues.G4 ? inputValues.G4 : 0}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
@@ -475,7 +476,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.P4}
                         helperText={errorStates.P4 ? "Invalid input" : ""}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
@@ -487,7 +488,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.P5}
                         helperText={errorStates.P5 ? "Invalid input" : ""}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
@@ -499,7 +500,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.N4}
                         helperText={errorStates.N4 ? "Invalid input" : ""}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
@@ -511,7 +512,7 @@ export default function Row(props: {
                         size="small"
                         error={errorStates.O4}
                         helperText={errorStates.O4 ? "Invalid input" : ""}
-                        onKeyPress={(event) => handleKeyPress(event)}
+                        onKeyDown={(event) => handleKeyPress(event)}
                         autoComplete="off"
                       />
                     </TableCell>
