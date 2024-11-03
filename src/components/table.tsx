@@ -124,7 +124,7 @@ const Calculator = () => {
                   A242: Number(a),
                 });
               }}
-              onKeyPress={(event) => handleKeyPress(event)}
+              onKeyDown={(event) => handleKeyPress(event)}
               size="small"
               className="balance"
               autoComplete="off"
@@ -143,7 +143,7 @@ const Calculator = () => {
                   D244: Number(a),
                 });
               }}
-              onKeyPress={(event) => handleKeyPress(event)}
+              onKeyDown={(event) => handleKeyPress(event)}
               className="balance"
               size="small"
               autoComplete="off"
