@@ -115,8 +115,8 @@ const Calculator = () => {
             }}
           >
             <TextField
-              id="C4"
-              label="Balance"
+              id="balance"
+              label="balance"
               value={generalData.A242}
               onChange={(e) => {
                 const a = e.target.value.replace(/,/g, '');
@@ -134,7 +134,7 @@ const Calculator = () => {
               focused
             />
             <TextField
-              id="C4"
+              id="initial_balance"
               label="Initial Balance"
               value={generalData.D244}
               onChange={(e) => {
