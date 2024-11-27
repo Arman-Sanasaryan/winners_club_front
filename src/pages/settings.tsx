@@ -25,10 +25,14 @@ const style = {
   borderRadius: 2,
 };
 
-export default function Settings() {
+interface BasicMenuProps {
+    username: string | null;
+  }
+
+export default function Settings({ username }: BasicMenuProps) {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
+    username: username,
     password: "",
     repeatPassword: ""
   });
@@ -62,7 +66,7 @@ export default function Settings() {
         if (response) {
           alert("User details updated successfully!");
           setFormData({
-            username: "",
+            username: username,
             password: "",
             repeatPassword: ""
           });
@@ -116,6 +120,7 @@ export default function Settings() {
               <TextField
                 fullWidth
                 label="Username"
+                defaultValue={username}
                 name="username"
                 value={formData.username}
                 onChange={handleChange}

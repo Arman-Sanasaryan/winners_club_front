@@ -14,7 +14,6 @@ interface BasicMenuProps {
   username: string | null;
 }
 
-
 export default function BasicMenu({ username }: BasicMenuProps) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -66,7 +65,7 @@ export default function BasicMenu({ username }: BasicMenuProps) {
           Dashboard
         </MenuItem>
         <MenuItem>
-          <Settings />
+          <Settings username={username} />
         </MenuItem>
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
