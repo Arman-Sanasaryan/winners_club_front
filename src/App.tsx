@@ -10,6 +10,7 @@ import Calculator from "./components/table";
 import { CoinsCalculationsProvider } from "./context/CoinsCalculationsContext";
 import { DataProvider } from "./context/DataContext";
 import "./App.css";
+import Dashboard from "./pages/dashboard";
 
 const defaultTheme = createTheme();
 
@@ -22,6 +23,7 @@ function App() {
             <Router>
               <Routes>
                 <Route path="/login" element={<Auth />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route
                   path="/"
                   element={

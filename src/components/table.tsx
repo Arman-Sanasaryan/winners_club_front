@@ -13,6 +13,9 @@ import Row from "./row";
 import { useAuthContext } from "../context/AuthContext";
 import BackgroundImage from "../assets/Background.png";
 import { updateGeneralData } from "../services/generalData";
+import BasicMenu from "./menu/menu";
+import { getUserById } from "../services/userData";
+import { useEffect, useState } from "react";
 
 const Calculator = () => {
   const {
@@ -26,6 +29,7 @@ const Calculator = () => {
   } = useDataContext();
 
   const { user } = useAuthContext();
+  const [username, setUsername] = useState<string | null>(null);
 
   const handleKeyPress = (event: any) => {
     if (event.key === "Enter") {
@@ -53,6 +57,21 @@ const Calculator = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (user && user.userId) {
+        try {
+          const userData = await getUserById(user.userId);
+          setUsername(userData.username);
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      }
+    };
+
+    fetchUser();
+  }, [user]);
+
   return (
     <Box
       sx={{
@@ -74,14 +93,10 @@ const Calculator = () => {
           flexWrap: "nowrap",
           color: "white",
           alignItems: "center",
-          gap: "10px",
-          padding: "10px",
-          height: "max-content",
-          backgroundColor: "#000000",
         }}
       >
-        {user.name}
-      </Box>{" "}
+        {username !== null && <BasicMenu username={username} />}
+      </Box>
       <Box
         sx={{
           display: "flex",
