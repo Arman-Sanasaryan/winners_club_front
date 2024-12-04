@@ -1,7 +1,9 @@
 import {
+  Alert,
   Box,
   Button,
   Paper,
+  Snackbar,
   Table,
   TableBody,
   TableContainer,
@@ -30,6 +32,7 @@ const Calculator = () => {
 
   const { user } = useAuthContext();
   const [username, setUsername] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState(false);
 
   const handleKeyPress = (event: any) => {
     if (event.key === "Enter") {
@@ -53,7 +56,7 @@ const Calculator = () => {
       console.log("Data saved successfully");
     } catch (error) {
       console.error("Error saving data:", error);
-      return;
+      setSaveError(true);
     }
   };
 
@@ -86,6 +89,15 @@ const Calculator = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+       <Snackbar
+      open={saveError}
+      autoHideDuration={3000}
+      onClose={() => setSaveError(false)}
+    >
+      <Alert severity="error" sx={{ width: '100%' }}>
+      Error: Unable to save. Please try again.
+      </Alert>
+    </Snackbar>
       <Box
         sx={{
           display: "flex",

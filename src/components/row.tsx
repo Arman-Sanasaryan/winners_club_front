@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import {
+  Alert,
   Box,
   Button,
   Collapse,
   IconButton,
   MenuItem,
   Select,
+  Snackbar,
   Table,
   TableBody,
   TableCell,
@@ -51,6 +53,7 @@ export default function Row(props: {
   const [coinName, setCoinName] = useState(name);
   const [inputValues, setInputValues] = useState(data);
   const [errorStates, setErrorStates] = useState<ErrorStates>({});
+  const [saveError, setSaveError] = useState(false);
 
   let isMoreThanZiro: boolean;
 
@@ -253,12 +256,21 @@ export default function Row(props: {
       console.log("Data saved successfully");
     } catch (error) {
       console.error("Error saving data:", error);
-      return;
+      setSaveError(true);
     }
   };
 
   return (
     <>
+    <Snackbar
+      open={saveError}
+      autoHideDuration={3000}
+      onClose={() => setSaveError(false)}
+    >
+      <Alert severity="error" sx={{ width: '100%' }}>
+      Error: Unable to save. Please try again.
+      </Alert>
+    </Snackbar>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell sx={{ width: "5%" }}>
           <IconButton
