@@ -268,7 +268,7 @@ export default function Row(props: {
       onClose={() => setSaveError(false)}
     >
       <Alert severity="error" sx={{ width: '100%' }}>
-      Error: Unable to save. Please try again.
+      Error: Unable to save. Please try again or refresh the page.
       </Alert>
     </Snackbar>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>

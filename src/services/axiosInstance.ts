@@ -34,7 +34,7 @@ axiosInstance.interceptors.response.use(
       const user = getCurrentUser();
       if (user && user.refresh_token) {
         try {
-          const response = await axios.post("www.clcweb.pro/auth/refresh", {
+          const response = await axios.post("https://www.clcweb.pro/auth/refresh", {
             refresh_token: user.refresh_token,
           });
           const newAccessToken = response.data.access_token;
@@ -45,7 +45,7 @@ axiosInstance.interceptors.response.use(
             access_token: newAccessToken,
             refresh_token: newRefreshToken,
           });
-          axios.defaults.headers.common["Authorization"] =
+          axiosInstance.defaults.headers.common["Authorization"] =
             "Bearer " + newAccessToken;
 
           originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
@@ -53,6 +53,7 @@ axiosInstance.interceptors.response.use(
         } catch (refreshError) {
           console.error("Refresh token expired:", refreshError);
           removeCurrentUser();
+          window.location.href = "/login";
         }
       }
     }
