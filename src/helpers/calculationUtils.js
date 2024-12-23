@@ -1,6 +1,6 @@
 import * as math from 'mathjs';
 
-/////////// INPUTS ///////////
+/////// INPUTS //////
 
 export const data = {
     "Y4": 20, // leverage, should be 10, 20 or 30. By default it is 20
