@@ -154,8 +154,13 @@ function Auth() {
       localStorage.setItem("access_token", response.access_token);
       localStorage.setItem("userId", response.userId);
       window.location.href = "/";
-    } catch (error) {
-      console.error("Login error: ", error);
+    } catch (error: any) {
+      if (error.response && error.response.status === 401) {
+        const errorMessage = error.response.data.message;
+        alert(errorMessage);
+      } else {
+        console.error("Login error: ", error);
+      }
     }
   };
 
