@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {
+  Alert,
   Box,
   Button,
   Checkbox,
   FormControl,
   Input,
+  Snackbar,
   Typography,
   styled,
 } from "@mui/material";
@@ -108,7 +110,9 @@ const Signup = styled(Box, {
 }));
 
 function Auth() {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState('');
 
   const handleChange = () => {
     setChecked(!checked);
@@ -157,7 +161,8 @@ function Auth() {
     } catch (error: any) {
       if (error.response && error.response.status === 401) {
         const errorMessage = error.response.data.message;
-        alert(errorMessage);
+        setMessage(errorMessage);
+        setOpen(true);
       } else {
         console.error("Login error: ", error);
       }
@@ -243,6 +248,15 @@ function Auth() {
           </StyledForm>
         </Login>
       </Main>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={() => setOpen(false)}
+      >
+        <Alert severity="error" sx={{ width: "100%" }}>
+          {message}
+        </Alert>
+      </Snackbar>
     </Container>
   );
 }
